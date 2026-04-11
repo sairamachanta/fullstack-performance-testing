@@ -2,4 +2,3 @@ node_modules/
 reports/k6/*.html
 reports/lighthouse/*.html
 .DS_Store
-package-lock.json
