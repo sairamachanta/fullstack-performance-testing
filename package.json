@@ -1,0 +1,24 @@
+{
+  "name": "fullstack-performance-testing",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "k6:load": "k6 run k6/scenarios/load-test.js",
+    "k6:stress": "k6 run k6/scenarios/stress-test.js",
+    "k6:spike": "k6 run k6/scenarios/spike-test.js",
+    "k6:soak": "k6 run k6/scenarios/soak-test.js",
+    "lighthouse:homepage": "node lighthouse/audits/homepage.audit.js",
+    "lighthouse:forms": "node lighthouse/audits/forms.audit.js",
+    "lighthouse:widgets": "node lighthouse/audits/widgets.audit.js",
+    "lighthouse:ci": "lhci autorestore && lhci collect && lhci assert"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "lighthouse": "^13.1.0"
+  }
+}

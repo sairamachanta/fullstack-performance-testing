@@ -1,0 +1,51 @@
+name: Performance & Load Testing Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 1' # Weekly on Monday
+
+jobs:
+  performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install k6
+        run: |
+          sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install k6
+
+      - name: Run k6 Load Test
+        run: k6 run k6/scenarios/load-test.js
+
+      - name: Run k6 Stress Test
+        run: k6 run k6/scenarios/stress-test.js
+        continue-on-error: true # Stress tests might fail thresholds by design
+
+      - name: Run Lighthouse Audits
+        run: |
+          npm run lighthouse:homepage
+          npm run lighthouse:forms
+          npm run lighthouse:widgets
+
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: performance-reports
+          path: reports/
