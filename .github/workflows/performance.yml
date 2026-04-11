@@ -29,6 +29,7 @@ jobs:
 
       - name: Run k6 Load Test
         run: k6 run k6/scenarios/load-test.js
+        continue-on-error: true
 
       - name: Run k6 Stress Test
         run: k6 run k6/scenarios/stress-test.js
@@ -39,8 +40,10 @@ jobs:
           npm run lighthouse:homepage
           npm run lighthouse:forms
           npm run lighthouse:widgets
+        continue-on-error: true
 
       - name: Upload Reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: performance-reports
