@@ -24,7 +24,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          mkdir -p reports/k6 reports/lighthouse
 
       - name: Setup k6
         uses: grafana/setup-k6-action@v1
