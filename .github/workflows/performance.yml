@@ -49,9 +49,9 @@ jobs:
 
       - name: Run Lighthouse Audits
         run: |
-          npm run lighthouse:homepage
-          npm run lighthouse:forms
-          npm run lighthouse:widgets
+          npx lighthouse https://reqres.in --quiet --chrome-flags="--headless --no-sandbox" --output html --output-path ./reports/lighthouse/homepage.report.html
+          npx lighthouse https://reqres.in/#support-heading --quiet --chrome-flags="--headless --no-sandbox" --output html --output-path ./reports/lighthouse/forms.report.html
+          npx lighthouse https://reqres.in/ --quiet --chrome-flags="--headless --no-sandbox" --output html --output-path ./reports/lighthouse/widgets.report.html
         continue-on-error: true
 
       - name: Deploy to GitHub Pages
