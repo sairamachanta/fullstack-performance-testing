@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             --card: #ffffff;
             --text: #1e293b;
         }
+
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: var(--bg);
@@ -21,24 +23,29 @@
             flex-direction: column;
             align-items: center;
         }
+
         .container {
             max-width: 900px;
             width: 100%;
         }
+
         header {
             text-align: center;
             margin-bottom: 3rem;
         }
+
         h1 {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
+
         .card {
             background: var(--card);
             padding: 1.5rem;
@@ -49,13 +56,16 @@
             color: inherit;
             border-left: 4px solid var(--primary);
         }
+
         .card:hover {
             transform: translateY(-5px);
         }
+
         .card h3 {
             margin-top: 0;
             color: var(--primary);
         }
+
         .badge {
             font-size: 0.75rem;
             background: #e2e8f0;
@@ -66,6 +76,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -79,17 +90,22 @@
                 <a href="k6/load-test-summary.html" class="card">
                     <span class="badge">Success</span>
                     <h3>Load Test Report</h3>
-                    <p>Normal traffic simulation (50 VUs) results.</p>
+                    <p>Normal traffic simulation (50 VUs).</p>
                 </a>
                 <a href="k6/stress-test-summary.html" class="card">
                     <span class="badge">Stress</span>
                     <h3>Stress Test Report</h3>
-                    <p>System limits and breaking point analysis.</p>
+                    <p>Beyond normal limits breaking point.</p>
                 </a>
                 <a href="k6/spike-test-summary.html" class="card">
                     <span class="badge">Spike</span>
                     <h3>Spike Test Report</h3>
-                    <p>Sudden burst traffic recovery analysis.</p>
+                    <p>Sudden burst traffic analysis.</p>
+                </a>
+                <a href="k6/soak-test-summary.html" class="card">
+                    <span class="badge">Soak</span>
+                    <h3>Soak Test Report</h3>
+                    <p>Sustained reliability analysis.</p>
                 </a>
             </div>
         </section>
@@ -100,15 +116,21 @@
                 <a href="lighthouse/homepage.report.html" class="card">
                     <span class="badge">UX Audit</span>
                     <h3>Homepage Audit</h3>
-                    <p>Performance, FCP, LCP, and CLS scores.</p>
+                    <p>Performance score & Core Web Vitals.</p>
                 </a>
                 <a href="lighthouse/forms.report.html" class="card">
                     <span class="badge">UX Audit</span>
-                    <h3>Forms Page Audit</h3>
-                    <p>Interactivity and TTI metrics.</p>
+                    <h3>Forms Audit</h3>
+                    <p>Support page interactivity metrics.</p>
+                </a>
+                <a href="lighthouse/widgets.report.html" class="card">
+                    <span class="badge">UX Audit</span>
+                    <h3>Widgets Audit</h3>
+                    <p>Component rendering performance.</p>
                 </a>
             </div>
         </section>
     </div>
 </body>
+
 </html>
