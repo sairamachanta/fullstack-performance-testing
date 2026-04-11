@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance & Load Testing Dashboard</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+            border-left: 4px solid var(--primary);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .badge {
+            font-size: 0.75rem;
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Performance Test Dashboard</h1>
+            <p>Automated k6 Load Tests & Lighthouse Audits</p>
+        </header>
+
+        <section>
+            <h2>📊 Backend (k6) Reports</h2>
+            <div class="grid">
+                <a href="k6/load-test-summary.html" class="card">
+                    <span class="badge">Success</span>
+                    <h3>Load Test Report</h3>
+                    <p>Normal traffic simulation (50 VUs) results.</p>
+                </a>
+                <a href="k6/stress-test-summary.html" class="card">
+                    <span class="badge">Stress</span>
+                    <h3>Stress Test Report</h3>
+                    <p>System limits and breaking point analysis.</p>
+                </a>
+                <a href="k6/spike-test-summary.html" class="card">
+                    <span class="badge">Spike</span>
+                    <h3>Spike Test Report</h3>
+                    <p>Sudden burst traffic recovery analysis.</p>
+                </a>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h2>💡 Frontend (Lighthouse) Reports</h2>
+            <div class="grid">
+                <a href="lighthouse/homepage.report.html" class="card">
+                    <span class="badge">UX Audit</span>
+                    <h3>Homepage Audit</h3>
+                    <p>Performance, FCP, LCP, and CLS scores.</p>
+                </a>
+                <a href="lighthouse/forms.report.html" class="card">
+                    <span class="badge">UX Audit</span>
+                    <h3>Forms Page Audit</h3>
+                    <p>Interactivity and TTI metrics.</p>
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
