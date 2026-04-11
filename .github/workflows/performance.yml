@@ -11,6 +11,8 @@ on:
 jobs:
   performance-test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -42,9 +44,9 @@ jobs:
           npm run lighthouse:widgets
         continue-on-error: true
 
-      - name: Upload Reports
+      - name: Deploy to GitHub Pages
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: performance-reports
-          path: reports/
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports

@@ -2,6 +2,8 @@
 
 Enterprise-grade performance testing framework demonstrating backend scalability and frontend user experience audits.
 
+**⚡ Live Report Dashboard:** [sairamachanta.github.io/fullstack-performance-testing](https://sairamachanta.github.io/fullstack-performance-testing/)
+
 ## 🚀 Overview
 This project proves that performance testing is a specialist skill. It uses **k6** for backend API performance and **Lighthouse** for frontend performance metrics, tracking Core Web Vitals and defining strict pass/fail thresholds.
 
